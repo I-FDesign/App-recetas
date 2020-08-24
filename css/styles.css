@@ -1,0 +1,47 @@
+:root {
+    --color-white: #fff;
+    --color-black: #333;
+    --color-gray: #75787b;
+    --color-gray-light: #bbb;
+    --color-gray-disabled: #e8e8e8;
+    --color-green: #53a318;
+    --color-green-dark: #383;
+    --font-size-small: .75rem;
+    --font-size-default: .875rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bottom{
+    position: relative;
+}
+
+.bottom .alert-message{
+    display: none;
+}
+
+.bottom .recipe-slider {
+    position: relative;
+    overflow: hidden;
+    height: 30vh;
+}
+
+.bottom .recipe-slider > div{
+    display: none;
+    position: relative;
+    position: absolute;
+    width: 100%;
+    padding: 0 5px;
+}
+
+.bottom .recipe-slider .first{
+    display: block;
+}
