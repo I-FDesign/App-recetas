@@ -61,13 +61,13 @@
                     </div>
                     <div class="second" id='screen_2'>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12 col-lg-6">
                                 <div class="form-group recipe-name">
                                     <label for="ingredientName">Nombre ingrediente</label>
                                     <input type="text" class="form-control" id="ingredientName" placeholder="Ejemplo: Azúcar morena">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-lg-6">
                                 <div class="form-group recipe-name">
                                     <label for="ingredientUnity">Medida ingrediente</label>
                                     <select id="ingredientUnity" class="form-control"
@@ -86,7 +86,7 @@
                         <hr>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12 col-lg-6">
                                 <div class="form-group recipe-name">
                                     <label for="ingredientQuantity">
                                         Cantidad necesaria (solo número, en <strong id='needed_quantity'>unidad</strong>)
@@ -94,7 +94,7 @@
                                     <input type="text" class="form-control" id="ingredientQuantity" placeholder="Ejemplo: 200">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-lg-6">
                                 <div class="form-group recipe-name">
                                     <label for="ingredientPrice">Costo por <span id='cost_type'>unidad</span></label>
                                     <input type="text" class="form-control" id="ingredientPrice" placeholder="Ejemplo: 350">
@@ -115,8 +115,89 @@
                             </button>
                         </div>
                     </div>
-                    <div class="third" id='screen_3'></div>
-                    <div class="fourth" id='screen_4'></div>
+                    <div class="third" id='screen_3'>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group carga-fabril">
+                                    <label for="cargaFabril">Carga fabril %</label>
+                                    <input type="text" class="form-control"  data-name='Carga fabril'
+                                        id="cargaFabril" placeholder="Ejemplo: 15">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group amortizacion">
+                                    <label for="amortizacion">Amortización %</label>
+                                    <input type="text" class="form-control"  data-name='Amortización'
+                                        id="amortizacion" placeholder="Ejemplo: 20">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group utilidad">
+                                    <label for="utilidad">Utilidad %</label>
+                                    <input type="text" class="form-control"  data-name='Utilidad'
+                                        id="utilidad" placeholder="Ejemplo: 30">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group iva">
+                                    <label for="iva">IVA %</label>
+                                    <input type="text" class="form-control"  data-name='IVA'
+                                        id="iva" placeholder="Ejemplo: 17">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="form-group porciones">
+                                    <label for="porciones">Porciones a prepar</label>
+                                    <input type="text" class="form-control"  data-name='Porciones'
+                                        id="porciones" placeholder="Ejemplo: 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fourth" id='screen_4'>
+                        <div class="row mb-2 mt-2">
+                            <div class="title col-12 col-md-6">
+                                <h3>
+                                    Nombre receta: <span id='recipe_name_placeholder'></span>
+                                </h3>
+                            </div>
+                            <div class="buttons col-12 col-md-6 text-right">
+                                <button class='btn btn-outline-primary mr-2'>
+                                    Glosario
+                                </button>
+                                <button class='btn btn-outline-warning'>
+                                    ¿Como usar la app?
+                                </button>
+                            </div>
+                        </div>
+                        <div class="subtitle mt-2">
+                            <h2>INGREDIENTES:</h2>
+                            <hr>
+                        </div>
+
+                        <div class="ingredients mt-4 mb-4">
+                            <table class="table" id='recipe_table'>
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Costo</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="alert-message">
@@ -132,6 +213,14 @@
                     <button onclick='nextScreen()'
                         class="btn btn-outline-success w-50 pt-2 pb-2">
                         Avanzar
+                        <i class="fa fa-angle-double-right" style='font-size: 18px; margin-bottom: -5px;'></i>
+                    </button>
+                </div>
+
+                <div class="button printButton text-center" style='display: none'>
+                    <button onclick='printData()'
+                        class="btn btn-outline-success w-50 pt-2 pb-2">
+                        Imprimir
                         <i class="fa fa-angle-double-right" style='font-size: 18px; margin-bottom: -5px;'></i>
                     </button>
                 </div>

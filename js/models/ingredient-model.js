@@ -29,7 +29,7 @@ class Ingredient {
             },
             secondaryUnity: {
                 unity: 'pz',
-                name: 'Pieza',
+                name: 'Piezas',
                 equivalency: 1
             },
         },

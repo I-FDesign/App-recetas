@@ -3,7 +3,11 @@ class Recipe {
         name,
         contactEmail,
         ingredients,
-        total
+        total,
+        cargaFabril,
+        amortizacion,
+        utilidad,
+        iva
     ) {
         this.name = name;
         this.contactEmail = contactEmail;
