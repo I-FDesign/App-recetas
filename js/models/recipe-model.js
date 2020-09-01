@@ -7,7 +7,8 @@ class Recipe {
         cargaFabril,
         amortizacion,
         utilidad,
-        iva
+        iva,
+        porciones
     ) {
         this.name = name;
         this.contactEmail = contactEmail;

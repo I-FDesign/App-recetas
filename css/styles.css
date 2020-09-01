@@ -45,3 +45,7 @@ body {
 .bottom .recipe-slider .first{
     display: block;
 }
+
+li{
+    list-style: none;
+}

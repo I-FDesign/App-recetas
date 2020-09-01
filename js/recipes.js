@@ -127,6 +127,13 @@ function validateScreen(screenId) {
                 }
             }
 
+            const utilidad = parseFloat($('#utilidad').val());
+
+            if(utilidad < 8 || utilidad > 65) {
+                showErrorMessage('El campo utilidad debe estar entre 8 y 65', 3);
+                break;
+            }
+
             if(validatedScreens.indexOf(screenId) < 0) {
                 validatedScreens.push(screenId);
                 $('.bottom .alert-message').css({
@@ -197,6 +204,20 @@ function removeIngredient(ingredientId) {
     adjustScreen(actualScreen);
 }
 
+function calculatePercentaje(value, percentaje) {
+    let response, percentajeToCalc = 0;
+
+    if(percentaje > 100) {
+        percentajeToCalc = (percentaje / 100);
+    } else {
+        percentajeToCalc = 1 + (percentaje / 100);
+    }
+    
+    response = value * percentajeToCalc;
+
+    return response;
+}
+
 function generateTable() {
     $('#recipe_name_placeholder').html(recipe.name);
 
@@ -209,12 +230,15 @@ function generateTable() {
     })
 
     const tableBody = $('#recipe_table tbody');
+    let total = 0;
 
     recipe.ingredients.forEach(ingredient => {
 
         let ingredientCost = (ingredient.price * ingredient.quantity);
         ingredientCost = ingredientCost / ingredient.unity.secondaryUnity.equivalency;
         ingredientCost = ingredientCost.toFixed(2);
+
+        total += parseFloat(ingredientCost);
 
         const tr = 
         "<tr>" +
@@ -226,6 +250,28 @@ function generateTable() {
 
         tableBody.html(tableBody.html() + tr);
     });
-   
-    console.log(recipe);
+
+    $('#carga_fabril_choosed').html(recipe.cargaFabril);
+    $('#amortizacion_choosed').html(recipe.amortizacion);
+    $('#utilidad_choosed').html(recipe.utilidad);
+    $('#iva_choosed').html(recipe.iva);
+    $('#porciones_choosed').html(recipe.porciones);
+
+    const calcs = {
+        cargaFabril: parseFloat(calculatePercentaje(total, recipe.cargaFabril).toFixed(2)),
+    }
+
+    calcs.amortizacion = parseFloat(calculatePercentaje(calcs.cargaFabril, recipe.amortizacion).toFixed(2));
+    calcs.iva = parseFloat(calculatePercentaje(calcs.amortizacion, recipe.iva).toFixed(2));
+    calcs.utilidad = parseFloat((calcs.iva / (1 - (recipe.utilidad / 100))).toFixed(2));
+    calcs.precioVenta = parseFloat((calcs.iva + calcs.utilidad).toFixed(2));
+    calcs.precioPorcion = parseFloat((calcs.precioVenta / recipe.porciones).toFixed(2));
+
+    $('#costo_base_calculated').html(total);
+    $('#carga_fabril_calculated').html(calcs.cargaFabril);
+    $('#amortizacion_calculated').html(calcs.amortizacion);
+    $('#iva_calculated').html(calcs.iva);
+    $('#utilidad_calculated').html(calcs.utilidad);
+    $('#precio_venta_calculated').html(calcs.precioVenta);
+    $('#precio_porcion_calculated').html(calcs.precioPorcion);
 }
