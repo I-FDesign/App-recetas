@@ -1,27 +1,26 @@
 let recipe;
+let recipeCreated = false;
+let ingredient = new Ingredient();
 
 let validatedScreens = [];
 
-function recipeUnityChanged(event) {
-    const unity = event.target.value;
 
-    switch(unity){
-        case 'kg':
-            $('#cost_type').html('1 kg');
-            break;
-        case 'ml':
-            $('#cost_type').html('1 L');
-            break;
-        case 'pz':
-            $('#cost_type').html('Pieza');
-            break;
-        case 'cm':
-            $('#cost_type').html('1 metro');
-            break;
-        default :
-            $('#cost_type').html('unidad');
-            break;
-    }   
+function recipeUnityChanged(event) {
+    const unityChoosed = event.target.value;
+
+    if(!unityChoosed) {
+        return;
+    }
+
+    const unitySelected = ingredient.unitys.find((unityObject) => {
+        return unityObject.principalUnity.unity === unityChoosed;
+    })
+
+    $('#cost_type').html('1 ' + unitySelected.principalUnity.name);
+    $('#needed_quantity').html(unitySelected.secondaryUnity.name);
+
+    ingredient.unity = unitySelected;
+    
 }
 
 function showErrorMessage(message, screenId) {
@@ -38,12 +37,15 @@ function showErrorMessage(message, screenId) {
 }
 
 function createRecipe() {
+    let ingredients = (recipeCreated) ? recipe.ingredients : [];
     recipe = new Recipe(
         $('#recipeName').val(),
         $('#contactEmail').val(),
-        [],
+        ingredients,
         0
-    )
+    );
+
+    recipeCreated = true;
 }
 
 function validateIngredient() {
@@ -91,10 +93,6 @@ function validateScreen(screenId) {
             }
             break;
         case 2:
-            
-            if(!validateIngredient()) {
-                break;
-            }
 
             if(recipe.ingredients.length <= 0) {
                 showErrorMessage('Debes agregar al menos un ingrediente', 2);
@@ -153,6 +151,8 @@ function addIngredient() {
     const oldHtml = $('#ingredients_list').html();
     $('#ingredients_list').html(oldHtml + listElement);
     
+    //Reset ingredients form
+    $('.second input, .second select').val("");
 
     adjustScreen(actualScreen);
 }
@@ -167,4 +167,6 @@ function removeIngredient(ingredientId) {
             display: 'none'
         });
     }
+
+    adjustScreen(actualScreen);
 }

@@ -78,5 +78,5 @@ function nextScreen(elementTarget = null, event = null) {
         }
 
         adjustScreen(actualScreen);
-    }, 300)
+    }, 200)
 }
