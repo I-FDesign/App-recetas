@@ -225,7 +225,7 @@ function generateTable() {
         display: 'none'
     })
 
-    $('.print-button').css({
+    $('#print_button').css({
         display: 'block'
     })
 

@@ -155,7 +155,7 @@
                         <div class="row mb-4">
                             <div class="col-12">
                                 <div class="form-group porciones">
-                                    <label for="porciones">Porciones a prepar</label>
+                                    <label for="porciones">Porciones a preparar</label>
                                     <input type="text" class="form-control"  data-name='Porciones'
                                         id="porciones" placeholder="Ejemplo: 2">
                                 </div>
@@ -170,12 +170,14 @@
                                 </h3>
                             </div>
                             <div class="buttons col-12 col-md-6 text-right">
-                                <button class='btn btn-outline-primary mr-2'>
+                                <a href='https://flavoo.club/glosario'  target="_blank" 
+                                   class='btn btn-outline-primary mr-2'>
                                     Glosario
-                                </button>
-                                <button class='btn btn-outline-warning'>
+                                </a>
+                                <a href='https://flavoo.club/costeorecetawebapp/'  target="_blank"
+                                    class='btn btn-outline-warning'>
                                     ¿Como usar la app?
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="subtitle mt-2">
@@ -197,6 +199,8 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <hr>
 
                         <div class="additional-data">
                             <div class="row">
@@ -242,7 +246,8 @@
                     </button>
                 </div>
 
-                <div class="button printButton text-center" style='display: none'>
+                <div class="button printButton text-center" 
+                    id='print_button' style='display: none'>
                     <button onclick='printData()'
                         class="btn btn-outline-success w-50 pt-2 pb-2">
                         Imprimir
