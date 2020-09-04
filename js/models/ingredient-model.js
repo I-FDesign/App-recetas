@@ -61,11 +61,13 @@ class Ingredient {
         name,
         unity,
         quantity,
+        buyQuantity,
         price
     ) {
         this.name = name;
         this.unity = unity;
         this.quantity = parseFloat(quantity);
+        this.buyQuantity = parseFloat(buyQuantity);
         this.price = parseFloat(price);
     }
 }

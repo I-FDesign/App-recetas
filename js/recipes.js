@@ -16,8 +16,7 @@ function recipeUnityChanged(event) {
         return unityObject.principalUnity.unity === unityChoosed;
     })
 
-    $('#cost_type').html('1 ' + unitySelected.principalUnity.name);
-    $('#needed_quantity').html(unitySelected.secondaryUnity.name);
+    $('.needed-quantity').html(unitySelected.secondaryUnity.name);
 
     ingredient.unity = unitySelected;
     
@@ -59,11 +58,11 @@ function validateIngredient() {
         return false;
     }
 
-    if($('#ingredientQuantity').val().length === 0) {
-        showErrorMessage('Debes ingresar una cantidad para el ingrediente', 2);
+    if($('#ingredientBuyQuantity').val().length === 0) {
+        showErrorMessage('Debes ingresar una cantidad para la compra el ingrediente', 2);
         return false;
-    } else if(isNaN($('#ingredientQuantity').val())) {
-        showErrorMessage('La cantidad debe ser numerica (Ej: 250 o 200.86)', 2);
+    } else if(isNaN($('#ingredientBuyQuantity').val())) {
+        showErrorMessage('La cantidad de la compra debe ser numerica (Ej: 245 o 124.36)', 2);
         return false;
     }
 
@@ -72,6 +71,14 @@ function validateIngredient() {
         return false;
     } else if(isNaN($('#ingredientPrice').val())) {
         showErrorMessage('El costo debe ser numerico (Ej: 245 o 154.56)', 2);
+        return false;
+    }
+
+    if($('#ingredientQuantity').val().length === 0) {
+        showErrorMessage('Debes ingresar una cantidad para el ingrediente', 2);
+        return false;
+    } else if(isNaN($('#ingredientQuantity').val())) {
+        showErrorMessage('La cantidad debe ser numerica (Ej: 250 o 200.86)', 2);
         return false;
     }
 
@@ -161,8 +168,9 @@ function addIngredient() {
     })
 
     ingredient.name = $('#ingredientName').val();
-    ingredient.quantity = $('#ingredientQuantity').val();
+    ingredient.buyQuantity = $('#ingredientBuyQuantity').val();
     ingredient.price = $('#ingredientPrice').val();
+    ingredient.quantity = $('#ingredientQuantity').val();
 
     recipe.ingredients.push(ingredient);
 
@@ -235,7 +243,7 @@ function generateTable() {
     recipe.ingredients.forEach(ingredient => {
 
         let ingredientCost = (ingredient.price * ingredient.quantity);
-        ingredientCost = ingredientCost / ingredient.unity.secondaryUnity.equivalency;
+        ingredientCost = ingredientCost / ingredient.buyQuantity;
         ingredientCost = ingredientCost.toFixed(2);
 
         total += parseFloat(ingredientCost);
@@ -263,8 +271,8 @@ function generateTable() {
 
     calcs.amortizacion = parseFloat(calculatePercentaje(calcs.cargaFabril, recipe.amortizacion).toFixed(2));
     calcs.iva = parseFloat(calculatePercentaje(calcs.amortizacion, recipe.iva).toFixed(2));
-    calcs.utilidad = parseFloat((calcs.iva / (1 - (recipe.utilidad / 100))).toFixed(2));
-    calcs.precioVenta = parseFloat((calcs.iva + calcs.utilidad).toFixed(2));
+    calcs.utilidad = parseFloat(total / (1 - (recipe.utilidad / 100))).toFixed(2);
+    calcs.precioVenta = parseFloat((calcs.iva + parseFloat(calcs.utilidad)).toFixed(2));
     calcs.precioPorcion = parseFloat((calcs.precioVenta / recipe.porciones).toFixed(2));
 
     $('#costo_base_calculated').html(total);
