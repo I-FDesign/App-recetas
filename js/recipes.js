@@ -281,7 +281,7 @@ function generateTable() {
     }
 
     calcs.amortizacion = parseFloat(calculatePercentaje(calcs.cargaFabril, recipe.amortizacion).toFixed(3));
-    calcs.utilidad = parseFloat(calcs.amortizacion / (1 - (recipe.utilidad / 100))).toFixed(3);
+    calcs.utilidad = (parseFloat(calcs.amortizacion / (1 - (recipe.utilidad / 100))) - calcs.amortizacion ).toFixed(3);
     calcs.precioVenta = parseFloat((calcs.amortizacion + parseFloat(calcs.utilidad)).toFixed(3));
     calcs.iva = parseFloat(calculatePercentaje(calcs.precioVenta, recipe.iva).toFixed(3));
     calcs.precioPorcion = parseFloat((calcs.iva / recipe.porciones).toFixed(3));
