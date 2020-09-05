@@ -241,7 +241,8 @@ function generateTable() {
         display: 'none'
     })
 
-    $('#print_button').css({
+    $('#final-buttons').removeClass('d-none');
+    $('#final-buttons').css({
         display: 'block'
     })
 
@@ -292,4 +293,34 @@ function generateTable() {
     $('#utilidad_calculated').html(calcs.utilidad);
     $('#precio_venta_calculated').html(calcs.precioVenta);
     $('#precio_porcion_calculated').html(calcs.precioPorcion);
+}
+
+function resetApp() {
+    $('input, select').val('');
+
+    recipe = null;
+    recipeCreated = false;
+    
+    $('.needed-quantity').html('unidad');
+    $('.unity-equivalency').html('Cada unidad posee una equivalencia distinta');
+    
+    $('#ingredients_list').html('');
+    $('.ingredients-list').css({
+        display: 'none'
+    });
+
+    
+
+    $('#recipe_table tbody').html('');
+
+    validatedScreens = [];
+
+    $('.next-screen').css({
+        display: 'block'
+    })
+
+    $('#final-buttons').removeClass('d-flex');
+    $('#final-buttons').addClass('d-none');
+
+    goToHomeScreen();
 }

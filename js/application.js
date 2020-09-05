@@ -83,6 +83,26 @@ function nextScreen(elementTarget = null, event = null) {
     }, 200)
 }
 
+function goToHomeScreen() {
+    actualScreen = 1;
+
+    $('.recipe-slider > div').css({
+        display: 'none',
+        left: '0'
+    })
+
+    $('.progress-bar-recipe > li').removeClass('is-active');
+
+    $('#screen_1').css({
+        display: 'block',
+        left: '0'
+    });
+
+    $('#screen_button_1').addClass('is-active');
+
+    adjustScreen(actualScreen);
+}
+
 function showErrorMessage(message, screenId) {
 
     if(validatedScreens.indexOf(screenId) >= 0) {
