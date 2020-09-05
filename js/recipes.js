@@ -2,13 +2,12 @@ let recipe;
 let recipeCreated = false;
 let ingredient = new Ingredient();
 
-let validatedScreens = [];
-
 
 function recipeUnityChanged(event) {
     const unityChoosed = event.target.value;
 
     if(!unityChoosed) {
+        $(event.target).val(ingredient.unity);
         return;
     }
 
@@ -18,21 +17,14 @@ function recipeUnityChanged(event) {
 
     $('.needed-quantity').html(unitySelected.secondaryUnity.name);
 
+    $('.unity-equivalency').html(
+        '1 <strong>' + unitySelected.principalUnity.unity.toUpperCase() + '</strong>' +
+        ' equivale a ' + unitySelected.secondaryUnity.equivalency + ' ' 
+        + '<strong>' + unitySelected.secondaryUnity.name.toUpperCase() + '</strong>'
+    );
+
     ingredient.unity = unitySelected;
     
-}
-
-function showErrorMessage(message, screenId) {
-
-    if(validatedScreens.indexOf(screenId) >= 0) {
-        validatedScreens.splice(validatedScreens.indexOf(screenId), 1);
-    }
-
-    $('.bottom .alert-message').css({
-        display: 'block'
-    })
-
-    $('#alert_message').html(message);
 }
 
 function createRecipe() {

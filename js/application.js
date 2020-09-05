@@ -1,5 +1,7 @@
 let actualScreen = 1;
 
+let validatedScreens = [];
+
 function adjustScreen(screenId) {
     const thisScreen = $('#screen_' + screenId);
     const screenHeight = thisScreen.height() + 'px';
@@ -79,6 +81,19 @@ function nextScreen(elementTarget = null, event = null) {
 
         adjustScreen(actualScreen);
     }, 200)
+}
+
+function showErrorMessage(message, screenId) {
+
+    if(validatedScreens.indexOf(screenId) >= 0) {
+        validatedScreens.splice(validatedScreens.indexOf(screenId), 1);
+    }
+
+    $('.bottom .alert-message').css({
+        display: 'block'
+    })
+
+    $('#alert_message').html(message);
 }
 
 function printData() {
