@@ -244,7 +244,7 @@ function generateTable() {
 
         let ingredientCost = (ingredient.price * ingredient.quantity);
         ingredientCost = ingredientCost / ingredient.buyQuantity;
-        ingredientCost = ingredientCost.toFixed(2);
+        ingredientCost = ingredientCost.toFixed(3);
 
         total += parseFloat(ingredientCost);
 
@@ -259,6 +259,8 @@ function generateTable() {
         tableBody.html(tableBody.html() + tr);
     });
 
+    total = total.toFixed(3);
+
     $('#carga_fabril_choosed').html(recipe.cargaFabril);
     $('#amortizacion_choosed').html(recipe.amortizacion);
     $('#utilidad_choosed').html(recipe.utilidad);
@@ -266,14 +268,14 @@ function generateTable() {
     $('#porciones_choosed').html(recipe.porciones);
 
     const calcs = {
-        cargaFabril: parseFloat(calculatePercentaje(total, recipe.cargaFabril).toFixed(2)),
+        cargaFabril: parseFloat(calculatePercentaje(total, recipe.cargaFabril).toFixed(3)),
     }
 
-    calcs.amortizacion = parseFloat(calculatePercentaje(calcs.cargaFabril, recipe.amortizacion).toFixed(2));
-    calcs.iva = parseFloat(calculatePercentaje(calcs.amortizacion, recipe.iva).toFixed(2));
-    calcs.utilidad = parseFloat(total / (1 - (recipe.utilidad / 100))).toFixed(2);
-    calcs.precioVenta = parseFloat((calcs.iva + parseFloat(calcs.utilidad)).toFixed(2));
-    calcs.precioPorcion = parseFloat((calcs.precioVenta / recipe.porciones).toFixed(2));
+    calcs.amortizacion = parseFloat(calculatePercentaje(calcs.cargaFabril, recipe.amortizacion).toFixed(3));
+    calcs.utilidad = parseFloat(calcs.amortizacion / (1 - (recipe.utilidad / 100))).toFixed(3);
+    calcs.precioVenta = parseFloat((calcs.amortizacion + parseFloat(calcs.utilidad)).toFixed(3));
+    calcs.iva = parseFloat(calculatePercentaje(calcs.precioVenta, recipe.iva).toFixed(3));
+    calcs.precioPorcion = parseFloat((calcs.iva / recipe.porciones).toFixed(3));
 
     $('#costo_base_calculated').html(total);
     $('#carga_fabril_calculated').html(calcs.cargaFabril);
