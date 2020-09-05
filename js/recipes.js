@@ -171,9 +171,14 @@ function addIngredient() {
     const listElement = 
     "<li class=\'list-group-item d-flex justify-content-between align-items-center\' id='ingredient_" + ingredientIndex +"'>" +
         (ingredientIndex + 1) + '- ' + ingredient.name + ' - ' + ingredient.quantity + ' - $' + ingredient.price +
-        "<span onclick=\"removeIngredient('" + ingredientIndex +"')\"class=\'badge badge-primary badge-pill\' style='cursor: pointer;'>" +
-            "<i class=\'fa fa-close\'></i>" +
-        "</span>" +
+        "<div class='option-buttons'>" +
+            "<span onclick=\"editIngredient('" + ingredientIndex +"')\"class='badge badge-primary badge-pill' style='cursor: pointer;'>" +
+                "<i class='fa fa-pencil'></i>" +
+            "</span>" +
+            "<span onclick=\"removeIngredient('" + ingredientIndex +"')\"class='badge badge-primary badge-pill ml-2' style='cursor: pointer;'>" +
+                "<i class='fa fa-close'></i>" +
+            "</span>" +
+        "</div>" +
     "</li>";
 
     $('.ingredients-list').css({
@@ -188,6 +193,17 @@ function addIngredient() {
 
     adjustScreen(actualScreen);
     ingredient = new Ingredient();
+}
+
+function editIngredient(ingredientId) {
+    const ingredientToEdit = recipe.ingredients[ingredientId];
+
+    $('#ingredientName').val(ingredientToEdit.name);
+    $('#ingredientBuyQuantity').val(ingredientToEdit.buyQuantity);
+    $('#ingredientPrice').val(ingredientToEdit.price);
+    $('#ingredientQuantity').val(ingredientToEdit.quantity);
+
+    removeIngredient(ingredientId);
 }
 
 function removeIngredient(ingredientId) {
