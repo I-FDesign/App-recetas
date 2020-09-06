@@ -79,6 +79,19 @@ function nextScreen(elementTarget = null, event = null) {
             actualScreen = nextScreenId;
         }
 
+        if(actualScreen !== 4 && tableAlreadyGenerated) {
+            $('.next-screen').css({
+                display: 'block'
+            })
+
+            $('#final-buttons').removeClass('d-flex');
+            $('#final-buttons').addClass('d-none');
+
+            $('#recipe_table tbody').html('');
+
+            tableAlreadyGenerated = false;
+        }
+
         adjustScreen(actualScreen);
     }, 200)
 }

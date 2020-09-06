@@ -2,6 +2,8 @@ let recipe;
 let recipeCreated = false;
 let ingredient = new Ingredient();
 
+let tableAlreadyGenerated = true;
+
 
 function recipeUnityChanged(event) {
     const unityChoosed = event.target.value;
@@ -293,6 +295,8 @@ function generateTable() {
     $('#utilidad_calculated').html(calcs.utilidad);
     $('#precio_venta_calculated').html(calcs.precioVenta);
     $('#precio_porcion_calculated').html(calcs.precioPorcion);
+
+    tableAlreadyGenerated = true;
 }
 
 function resetApp() {
@@ -308,8 +312,6 @@ function resetApp() {
     $('.ingredients-list').css({
         display: 'none'
     });
-
-    
 
     $('#recipe_table tbody').html('');
 
