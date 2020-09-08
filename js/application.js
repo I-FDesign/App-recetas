@@ -84,7 +84,7 @@ function nextScreen(elementTarget = null, event = null, goingBack = false) {
         }
 
         if(actualScreen !== 4 && tableAlreadyGenerated) {
-            $('.next-screen').css({
+            $('.next-screen button').css({
                 display: 'block'
             })
 

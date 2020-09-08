@@ -239,7 +239,7 @@ function calculatePercentaje(value, percentaje) {
 function generateTable() {
     $('#recipe_name_placeholder').html(recipe.name);
 
-    $('.next-screen').css({
+    $('.next-screen, .next-screen button').css({
         display: 'none'
     })
 

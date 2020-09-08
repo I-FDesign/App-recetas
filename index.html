@@ -12,6 +12,19 @@
 </head>
 <body>
 
+    <header>
+        <div class="container">
+            <div class="banner d-flex">
+                <div class="icon">
+                    <img src="./img/header-icon.png" alt="">
+                </div>
+                <div class="logo d-flex align-items-end">
+                    <img src="./img/header-logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="content">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -267,18 +280,6 @@
                     </div>
                 </div>
                 <div class="bottom-buttons">
-                    <div class="button next-screen text-center d-flex justify-content-around">
-                        <button onclick='nextScreen(null, null, true)' style='display: none'
-                            class="btn btn-outline-primary last-screen w-50 pt-2 pb-2">
-                            <i class="fa fa-angle-double-left"></i>
-                            Paso anterior
-                        </button>
-                        <button onclick='nextScreen()'
-                            class="btn btn-outline-success w-50 pt-2 pb-2">
-                            Avanzar
-                            <i class="fa fa-angle-double-right"></i>
-                        </button>
-                    </div>
     
                     <div class="final-buttons d-flex justify-content-around text-center" 
                         id='final-buttons' style='display: none !important'>
@@ -294,12 +295,25 @@
                             Imprimir
                         </button>
                     </div>
+
+                    <div class="button next-screen text-center d-flex justify-content-around mt-2">
+                        <button onclick='nextScreen(null, null, true)' style='display: none'
+                            class="btn btn-outline-primary last-screen w-50 pt-2 pb-2">
+                            <i class="fa fa-angle-double-left"></i>
+                            Paso anterior
+                        </button>
+                        <button onclick='nextScreen()'
+                            class="btn btn-outline-success w-50 pt-2 pb-2">
+                            Avanzar
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+
                 </div>
                 
             </div>
         </div>
     </div>
-
 
 
     <script src='./js/jquery.js'></script>
