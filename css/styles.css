@@ -5,9 +5,36 @@
     --color-gray-light: #bbb;
     --color-gray-disabled: #e8e8e8;
     --color-green: #53a318;
+    --color-blue: #0c8296;
+    --primary: #0c8296;
     --color-green-dark: #383;
     --font-size-small: .75rem;
     --font-size-default: .875rem;
+}
+
+.btn-outline-primary, .btn-outline-success{
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.btn-success {
+    border-color: var(--primary) !important;
+    color: white !important;
+    background-color: var(--primary) !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-success:hover,
+.btn-outline-primary:focus, .btn-outline-success:focus,
+.btn-outline-primary:active, .btn-outline-success:active{
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+}
+
+.btn-outline-primary:focus, .btn-outline-success:focus,
+.btn-outline-primary:active, .btn-outline-success:active,
+.btn-success:focus, .btn-success:active {
+    box-shadow: 0 0 0 0.2rem rgba( 12, 130, 150, .5) !important;
 }
 
 * {

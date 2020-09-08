@@ -23,7 +23,7 @@ h2 {
     padding: 0 0 14px 0;
     font-size: var(--font-size-default);
     line-height: 1.5;
-    color: var(--color-green);
+    color: var(--color-blue);
     font-weight: 600;
     white-space: nowrap;
     overflow: visible;
@@ -67,10 +67,10 @@ h2 {
       display: inline-block;
       padding: 4px 11px;
       border-radius: 50%;
-      border: 1px solid var(--color-green);
+      border: 1px solid var(--color-blue);
     }
     .progress-bar-recipe .is-active .number-container p.number {
-      background: var(--color-green);
+      background: var(--color-blue);
       color: white;
     }
     .progress-bar-recipe span {
@@ -88,7 +88,7 @@ h2 {
     bottom: -3.5px;
     left: -50%;
     z-index: 2;
-    border-bottom: 4px solid var(--color-green);
+    border-bottom: 4px solid var(--color-blue);
     }
     .progress-bar-recipe li:last-child span {
     width: 200%;
@@ -104,14 +104,14 @@ h2 {
     }
 
     .progress-bar-recipe .is-complete:before {
-    background-color: var(--color-green);
+    background-color: var(--color-blue);
     }
 
     .progress-bar-recipe .is-active:before,
     .progress-bar-recipe li:hover:before,
     .progress-bar-recipe .is-hovered:before {
     background-color: var(--color-white);
-    border-color: var(--color-green);
+    border-color: var(--color-blue);
     }
     .progress-bar-recipe li:hover:before,
     .progress-bar-recipe .is-hovered:before {
