@@ -60,6 +60,19 @@ h2 {
     right: 0;
     left: auto;
     }
+    .progress-bar-recipe .number-container {
+      width: 100%;
+    }
+    .progress-bar-recipe .number-container p.number{
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 50%;
+      border: 1px solid var(--color-green);
+    }
+    .progress-bar-recipe .is-active .number-container p.number {
+      background: var(--color-green);
+      color: white;
+    }
     .progress-bar-recipe span {
     transition: opacity .3s ease-in-out;
     }
