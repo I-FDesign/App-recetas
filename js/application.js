@@ -11,7 +11,7 @@ function adjustScreen(screenId) {
     }, 200)
 }
 
-function nextScreen(elementTarget = null, event = null) {
+function nextScreen(elementTarget = null, event = null, goingBack = false) {
     //Using "next" button
     let nextScreenId = (actualScreen + 1); 
 
@@ -21,6 +21,10 @@ function nextScreen(elementTarget = null, event = null) {
 
     if((actualScreen + 1) < nextScreenId) {
         nextScreenId = actualScreen + 1;
+    }
+
+    if(goingBack) {
+        nextScreenId = actualScreen - 1;
     }
 
     let thisScreenElement = $('#screen_' + actualScreen);
@@ -92,6 +96,16 @@ function nextScreen(elementTarget = null, event = null) {
             tableAlreadyGenerated = false;
         }
 
+        if(actualScreen > 1) {
+            $('.next-screen .last-screen').css({
+                display: 'block'
+            })
+        } else {
+            $('.next-screen .last-screen').css({
+                display: 'none'
+            })
+        }
+        
         adjustScreen(actualScreen);
     }, 200)
 }

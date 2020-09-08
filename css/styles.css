@@ -49,3 +49,13 @@ body {
 li{
     list-style: none;
 }
+
+.bottom-buttons button{
+    width: 100%; 
+    max-width: 530px;
+}
+
+.bottom-buttons .next-screen button i{
+    font-size: 18px; 
+    margin-bottom: -5px;
+}

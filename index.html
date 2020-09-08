@@ -266,29 +266,36 @@
                         </button>
                     </div>
                 </div>
-
-                <div class="button next-screen text-center">
-                    <button onclick='nextScreen()'
-                        class="btn btn-outline-success w-50 pt-2 pb-2">
-                        Avanzar
-                        <i class="fa fa-angle-double-right" style='font-size: 18px; margin-bottom: -5px;'></i>
-                    </button>
+                <div class="bottom-buttons">
+                    <div class="button next-screen text-center d-flex justify-content-around">
+                        <button onclick='nextScreen(null, null, true)' style='display: none'
+                            class="btn btn-outline-primary last-screen w-50 pt-2 pb-2">
+                            <i class="fa fa-angle-double-left"></i>
+                            Paso anterior
+                        </button>
+                        <button onclick='nextScreen()'
+                            class="btn btn-outline-success w-50 pt-2 pb-2">
+                            Avanzar
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+    
+                    <div class="final-buttons d-flex justify-content-around text-center" 
+                        id='final-buttons' style='display: none !important'>
+                        <button onclick='resetApp()'
+                            class="btn btn-outline-success pt-2 pb-2">
+                            <i class="fa fa-plus" style='font-size: 18px; margin-bottom: -10px;'></i>
+                            Nueva receta
+                        </button>
+    
+                        <button onclick='printData()'
+                            class="btn btn-outline-success pt-2 pb-2">
+                            <i class="fa fa-print" style='font-size: 18px; margin-bottom: -5px;'></i>
+                            Imprimir
+                        </button>
+                    </div>
                 </div>
-
-                <div class="final-buttons d-flex justify-content-around text-center" 
-                    id='final-buttons' style='display: none !important'>
-                    <button onclick='resetApp()' style='width: 100%; max-width: 530px;'
-                        class="btn btn-outline-success pt-2 pb-2">
-                        <i class="fa fa-plus" style='font-size: 18px; margin-bottom: -10px;'></i>
-                        Nueva receta
-                    </button>
-
-                    <button onclick='printData()' style='width: 100%; max-width: 530px;'
-                        class="btn btn-outline-success pt-2 pb-2">
-                        <i class="fa fa-print" style='font-size: 18px; margin-bottom: -5px;'></i>
-                        Imprimir
-                    </button>
-                </div>
+                
             </div>
         </div>
     </div>

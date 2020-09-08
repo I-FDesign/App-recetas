@@ -177,8 +177,8 @@ function addIngredient() {
             "<span onclick=\"editIngredient('" + ingredientIndex +"')\"class='badge badge-primary badge-pill' style='cursor: pointer;'>" +
                 "<i class='fa fa-pencil'></i>" +
             "</span>" +
-            "<span onclick=\"removeIngredient('" + ingredientIndex +"')\"class='badge badge-primary badge-pill ml-2' style='cursor: pointer;'>" +
-                "<i class='fa fa-close'></i>" +
+            "<span onclick=\"removeIngredient('" + ingredientIndex +"')\"class='badge badge-danger badge-pill ml-2' style='cursor: pointer;'>" +
+                "<i class='fa fa-trash' style='font-size: 13px;'></i>" +
             "</span>" +
         "</div>" +
     "</li>";
