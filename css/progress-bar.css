@@ -150,7 +150,7 @@ h2 {
 @media screen and (max-width: 1000px) {
   .progress-bar-recipe span,
   .progress-bar-recipe li:hover span {
-    display: none;
+    display: none !important;
   }
 
 }

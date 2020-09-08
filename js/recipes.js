@@ -317,7 +317,7 @@ function resetApp() {
 
     validatedScreens = [];
 
-    $('.next-screen').css({
+    $('.next-screen button').css({
         display: 'block'
     })
 
