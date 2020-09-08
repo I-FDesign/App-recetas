@@ -12,11 +12,16 @@ function adjustScreen(screenId) {
 }
 
 function nextScreen(elementTarget = null, event = null, goingBack = false) {
+
     //Using "next" button
     let nextScreenId = (actualScreen + 1); 
 
     if(elementTarget !== null) { //Using progress-bar
-        nextScreenId = $(event.target).data('screen');
+        if($(event.target).data('screen')) {
+            nextScreenId = $(event.target).data('screen');
+        } else {
+            nextScreenId = $(event.target).parents('li').data('screen');
+        }
     }
 
     if((actualScreen + 1) < nextScreenId) {
@@ -144,16 +149,28 @@ function showErrorMessage(message, screenId) {
 }
 
 function printData() {
-    var divContents = document.getElementById("screen_4").innerHTML; 
-    var a = window.open('', '', 'height=500, width=1200'); 
-    a.document.write('<html>'); 
-    a.document.write('<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">'); 
-    a.document.write('<link rel="stylesheet" href="./css/styles.css"></head>'); 
-    a.document.write(divContents); 
-    a.document.write('</body></html>'); 
+    $('.screen-header').css({
+        display: 'block'
+    })
     setTimeout(() => {
-        a.print(); 
-        a.document.close();
-    }, 500); 
+        var divContents = document.getElementById("screen_4").innerHTML; 
+
+        $('.screen-header').css({
+            display: 'none'
+        })
+
+        var a = window.open('', '', 'height=500, width=1200'); 
+        a.document.write('<html>'); 
+        a.document.write('<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">'); 
+        a.document.write('<link rel="stylesheet" href="./css/styles.css"></head>'); 
+        a.document.write(divContents); 
+        a.document.write('</body></html>');
+        
+        setTimeout(() => {
+            a.print(); 
+            a.document.close();
+        }, 300); 
+    }, 50);
+       
     
 }

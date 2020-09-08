@@ -50,6 +50,7 @@ body {
 header {
     width: 100%;
     margin: 3vh 0;
+    margin-top: 2vh;
 }
 
 header .banner {
@@ -105,4 +106,54 @@ li{
 .bottom-buttons .next-screen button i{
     font-size: 18px; 
     margin-bottom: -5px;
+}
+
+@media screen and (max-width: 1000px) {
+    #final-buttons button,
+    .next-screen button {
+        max-width: 100% !important;
+    }
+
+    #final-buttons button:last-child {
+        margin-bottom: 20px !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+  header .banner{
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
+      align-items: center;
+  }
+
+  header .banner > div{
+      width: auto ;
+  }
+
+  header .banner img{
+      height: 100px !important;
+      max-height: 100px !important;
+      width: auto !important;
+  }
+
+  header .banner .icon img {
+      height: 150px;
+  }
+
+  .jumbotron h1{
+      font-size: 28px !important;
+  }
+
+  .jumbotron p.lead {
+      font-size: 16px;
+  }
+
+  .top{
+      overflow: hidden;
+  }
+
+  .top .title h2 {
+      font-size: 20px !important;
+  }
 }

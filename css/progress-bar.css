@@ -68,6 +68,7 @@ h2 {
       padding: 4px 11px;
       border-radius: 50%;
       border: 1px solid var(--color-blue);
+      cursor: pointer;
     }
     .progress-bar-recipe .is-active .number-container p.number {
       background: var(--color-blue);
@@ -146,3 +147,10 @@ h2 {
     background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%208%208%22%3E%3Cpath%20fill%3D%22%23ed1c24%22%20d%3D%22M4%200l4%208H0z%22%2F%3E%3C%2Fsvg%3E');
     }
 
+@media screen and (max-width: 1000px) {
+  .progress-bar-recipe span,
+  .progress-bar-recipe li:hover span {
+    display: none;
+  }
+
+}
