@@ -148,6 +148,17 @@ function showErrorMessage(message, screenId) {
     $('#alert_message').html(message);
 }
 
+function saveUserEmail(email) {
+    $.ajax({
+        type: "POST",
+        url: "_ajax_saveEmail.php",
+        data: { email: email },
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}
+
 function printData() {
     $('.screen-header').css({
         display: 'block'

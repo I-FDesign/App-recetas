@@ -92,6 +92,7 @@ function validateScreen(screenId) {
                     }
 
                     createRecipe();
+                    saveUserEmail($('#contactEmail').val());
                 } else {
                     showErrorMessage('Debes ingresar un email de contacto', screenId);
                 }

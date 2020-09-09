@@ -1,3 +1,9 @@
+<?php
+    require_once('./config.php');
+
+    include('./_ajax_saveEmail.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
